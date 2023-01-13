@@ -1,0 +1,22 @@
+variant: openshift
+version: 4.11.0
+metadata:
+  name: 99-worker-custom
+  labels:
+    machineconfiguration.openshift.io/role: worker
+openshift:
+  kernel_arguments:
+    - loglevel=7
+storage:
+  files:
+    - path: /etc/chrony.conf
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+                pool 192.168.67.28 prefer iburst
+                pool 192.168.67.254 iburst
+                driftfile /var/lib/chrony/drift
+                makestep 1.0 3
+                rtcsync
+                logdir /var/log/chrony

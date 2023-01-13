@@ -1,0 +1,56 @@
+apiVersion: v1
+baseDomain: vnlabs.dev
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: 2
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: thanhnq
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 192.168.68.0/24
+  networkType: OVNKubernetes
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  baremetal:
+    hosts:
+      - name: worker01
+        role: worker
+        bootMACAddress: 00:50:56:87:94:b1
+      - name: worker02
+        role: worker
+        bootMACAddress: 00:50:56:87:94:b2
+      - name: master01
+        role: master
+        bootMACAddress: 00:50:56:87:94:a1
+      - name: master02
+        role: master
+        bootMACAddress: 00:50:56:87:94:a2
+      - name: master03
+        role: master
+        bootMACAddress: 00:50:56:87:94:a3
+    apiVIP: "192.168.68.30"
+    ingressVIP: "192.168.68.31"
+pullSecret: '{"auths": { "quay.vnlabs.dev:8443": {"auth": "YOUR_AUTH_CODE"}}}'
+sshKey: 'YOUR_SSH_KEY' 
+imageContentSources:
+- mirrors:
+  - quay.vnlabs.dev:8443/openshift/release
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+- mirrors:
+  - quay.vnlabs.dev:8443/openshift/release-images
+  source: quay.io/openshift-release-dev/ocp-release
+additionalTrustBundle: |
+ 
+
+
