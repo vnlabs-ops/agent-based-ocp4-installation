@@ -1,5 +1,13 @@
 apiVersion: v1
 baseDomain: vnlabs.dev
+# Neu he thong dung proxy thi chung ta can khai bao ơ day
+#proxy:
+#  httpProxy: http://proxy.vnlabs.dev:8080
+#  httpsProxy: https://USERNAME:PASSWORD@proxy.example.com:PORT
+#  noProxy: <WILDCARD_OF_DOMAIN>,<PROVISIONING_NETWORK/CIDR>,<BMC_ADDRESS_RANGE/CIDR>
+#  ## example: 
+#  noProxy: .thanhnq.vnlabs.dev, 192.168.67.0/24
+
 compute:
 - architecture: amd64
   hyperthreading: Enabled
