@@ -418,5 +418,9 @@ Sau khi phân quyền xong, chúng ta có thể xóa user kubeadmin để giảm
 ```
 
 Như vậy là chúng ta đã cài đặt xong openshift cluster trong môi trường disconnected.
+
 Các bạn có thể xem thêm youtube clip nếu chưa rõ các bước. 
+
 Chúc các bạn thành công !
+
+Nếu các bạn quan tâm đến Red Hat ở Việt Nam, xin vui lòng join Facebook group: https://facebook.com/groups/redhatvietnam
