@@ -152,8 +152,17 @@ Lưu ý:
 - quá trình này sẽ tạo 1 thư mục tên là __oc-mirror-workspace__ về sau chúng ta sẽ dùng nội dung trong thư mục này để hiển thi danh sách các operator được add vào trong file imageset-config.yaml 
 - quá trình mirror sẽ kéo dài khoảng 30-60 phút tùy theo số lượng operator và chất lượng đường truyền internet
 
+Thiết lập biến môi trường:
+```
+[user@bastion mirror]# export OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE=`hostname`:8443/openshift/release-images@<sha256 value>
+```
+_sha256 value_: 
+- để có giá trị này, bạn vào trình duyệt và truy cập vào mirror registry (ví dụ https://bastion.vnlabs.dev:8443/openshift/release-images)
+- vào Tags, trong cột MANIFEST, nhấn vào SHA256, sau đó copy giá trị SHA256 và paste vào câu lệnh trên
+(xem thêm youtube clips nếu chưa rõ)
+
 ## Build openshift-install tool (tùy chọn)
-Nếu bạn download openshift-install phiên bản 4.12 thì không cần thực hienej bước này
+Nếu bạn download openshift-install phiên bản 4.12 thì không cần thực hiện bước này
 Với bản 4.11, do chưa hỗ trợ tính năng agent-based installation, nên chúng ta phải tự build.
 
 Bạn có thể kiểm tra openshift-install của bạn bằng cách chạy _openshift-install_, nếu bên dưới Available Commands không có __agent__ (agent Commands for supporting cluster installation using agent installer) thì bạn sẽ cần thực hiện thao tác build này
@@ -195,15 +204,6 @@ Use "openshift-install [command] --help" for more information about a command.
 ```
 [user@bastion mirror]# chmod +x billie-release.sh
 ```
-
-Thiết lập biến môi trường:
-```
-[user@bastion mirror]# export OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE=`hostname`:8443/openshift/release-images@<sha256 value>
-```
-_sha256 value_: 
-- để có giá trị này, bạn vào trình duyệt và truy cập vào mirror registry (ví dụ https://bastion.vnlabs.dev:8443/openshift/release-images)
-- vào Tags, trong cột MANIFEST, nhấn vào SHA256, sau đó copy giá trị SHA256 và paste vào câu lệnh trên
-(xem thêm youtube clips nếu chưa rõ)
 
 Tiếp theo chúng ta chạy lệnh sau để build tool, câu lệnh bên dưới build __openshift-install__ tool cho __version 4.11.6__
 ```
