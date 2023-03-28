@@ -1,5 +1,5 @@
 variant: openshift
-version: 4.11.0
+version: 4.12.0
 metadata:
   name: 99-worker-custom
   labels:
@@ -14,8 +14,8 @@ storage:
       overwrite: true
       contents:
         inline: |
-                pool 192.168.67.28 prefer iburst
-                pool 192.168.67.254 iburst
+                pool 192.168.67.254 prefer iburst
+                pool 192.168.67.3 iburst
                 driftfile /var/lib/chrony/drift
                 makestep 1.0 3
                 rtcsync

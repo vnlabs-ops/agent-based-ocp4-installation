@@ -47,8 +47,8 @@ platform:
       - name: master03
         role: master
         bootMACAddress: 00:50:56:87:94:a3
-    apiVIP: "192.168.68.30" # if v4.12, apiVIP --> apiVIPs
-    ingressVIP: "192.168.68.31" # if v4.12, ingressVIP --> ingressVIPs
+    apiVIPs: ["192.168.68.30"] # if v4.11, apiVIPs --> apiVIP: "192.168.68.30"
+    ingressVIPs: ["192.168.68.31"] # if v4.11, ingressVIPs --> ingressVIP: "192.168.68.31"
 pullSecret: '{"auths": { "quay.vnlabs.dev:8443": {"auth": "YOUR_AUTH_CODE"}}}'
 sshKey: 'YOUR_SSH_KEY' 
 imageContentSources:
