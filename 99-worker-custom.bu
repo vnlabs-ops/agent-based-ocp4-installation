@@ -20,3 +20,16 @@ storage:
                 makestep 1.0 3
                 rtcsync
                 logdir /var/log/chrony
+systemd:
+  units:
+  - contents: |
+      [Unit]
+      Description=set timezone
+      After=network-online.target
+      [Service]
+      Type=oneshot
+      ExecStart=timedatectl set-timezone Asia/Ho_Chi_Minh
+      [Install]
+      WantedBy=multi-user.target
+    enabled: true
+    name: custom-timezone.service
