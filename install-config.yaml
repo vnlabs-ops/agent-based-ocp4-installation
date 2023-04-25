@@ -9,12 +9,12 @@ baseDomain: vnlabs.dev
 #  noProxy: .thanhnq.vnlabs.dev, 192.168.67.0/24
 
 compute:
-- architecture: amd64
-  hyperthreading: Enabled
+- hyperthreading: Enabled
   name: worker
   replicas: 2
+  # architecture: amd64
 controlPlane:
-  architecture: amd64
+  # architecture: amd64
   hyperthreading: Enabled
   name: master
   replicas: 3
