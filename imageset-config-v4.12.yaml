@@ -147,9 +147,6 @@ mirror:
       - name: openshift-custom-metrics-autoscaler-operator
         channels:
         - name: stable
-      - name: openshift-gitops-operator
-        channels:
-        - name: latest
       - name: openshift-pipelines-operator-rh
         channels:
         - name: latest
