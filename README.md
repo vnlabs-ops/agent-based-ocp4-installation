@@ -164,6 +164,19 @@ _sha256 value_:
 - vào Tags, trong cột MANIFEST, nhấn vào SHA256, sau đó copy giá trị SHA256 và paste vào câu lệnh trên
 (xem thêm youtube clips nếu chưa rõ)
 
+## Setup HAProxy trên bastion host (tùy chọn)
+Chúng ta có thể dùng HAProxy làm external load balancer cho Openshift cluster. Về lý thuyết, cluster sẽ cần load balancer cho 2 thành phần sau:
+- cluster API endpoint (thông qua port 6443 và 22623)
+- ingress endpoint (để người dùng có thể truy cập các app bên trong cluster thông qua port 80/443)
+Nếu chúng ta không dùng HAProxy thì cluster sẽ sử dụng internal load balancer, tuy nhiên internal load balancer sẽ có một số hạn chế. Do đó, nếu có thể chúng ta nên setup 1 HAProxy bên ngoài.
+Trong repo này cung cấp file cấu hình haproxy mẫu để chúng ta có thể tùy chỉnh cho phù hợp.
+Lưu ý:
+- Nếu  bastion host có SELinux ở chế độ enforcing mode thì chúng ta cần thực hiện câu lệnh sau:
+```
+[user@bastion mirror]# sudo setsebool -P haproxy_connect_any=1
+```
+Tham khảo thêm: https://docs.openshift.com/container-platform/4.13/installing/installing_platform_agnostic/installing-platform-agnostic.html#installation-load-balancing-user-infra-example_installing-platform-agnostic
+
 ## Build openshift-install tool (tùy chọn)
 Nếu bạn download openshift-install phiên bản 4.12 thì không cần thực hiện bước này
 Với bản 4.11, do chưa hỗ trợ tính năng agent-based installation, nên chúng ta phải tự build.
