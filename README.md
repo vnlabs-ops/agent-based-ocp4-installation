@@ -267,7 +267,10 @@ Tạo 2 file _install-config.yaml_ và _agent-config.yaml_ trong thư mục clus
 ```
 pullSecret: '{"bastion.vnlabs.dev:8443": { "auth": "aW5pdDpYOGFxclJwWjJXSDFUOVFpR0NORHZBbjVvMzYwWTc0Uw==" } }'
 ```    
-- _additionalTrustBundle_: là nội dung của file __/etc/pki/ca-trust/source/anchors/rootCA.pem__ trên bastion host
+- _additionalTrustBundle_: là nội dung của file __/etc/pki/ca-trust/source/anchors/rootCA.pem__ trên bastion host, chạy câu lệnh dưới để import nội dung của rootCA.pem vào:
+```
+[user@bastion mirror]# sed -e 's/^/ /' /etc/pki/ca-trust/source/anchors/rootCA.pem >> install-config.yaml
+```
 
 Tiếp theo, chúng ta sẽ tạo _Machineconfig_ sử dụng _butane_ để cấu hình chrony cho các node trong quá trình cài (https://docs.openshift.com/container-platform/4.11/installing/install_config/installing-customizing.html)
 Truy cập vào địa chỉ https://mirror.openshift.com/pub/openshift-v4/clients/butane/ để kiểm tra và lấy link down load của version mới nhất 
