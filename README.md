@@ -151,6 +151,7 @@ Cuối cùng, chúng ta chạy lệnh sau để thực hiện mirror
 Lưu ý:
 - quá trình này sẽ tạo 1 thư mục tên là __oc-mirror-workspace__ về sau chúng ta sẽ dùng nội dung trong thư mục này để hiển thi danh sách các operator được add vào trong file imageset-config.yaml 
 - quá trình mirror sẽ kéo dài khoảng 30-60 phút tùy theo số lượng operator và chất lượng đường truyền internet
+- nếu gặp lỗi trong quá trình mirror, bạn có thể thêm khóa __--continue-on-error__ vào câu lệnh __oc mirror__ ở trên để hoàn thành quá trình mirror
 
 Thiết lập biến môi trường:
 ```
