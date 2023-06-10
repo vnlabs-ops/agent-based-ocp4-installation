@@ -168,8 +168,10 @@ _sha256 value_:
 Chúng ta có thể dùng HAProxy làm external load balancer cho Openshift cluster. Về lý thuyết, cluster sẽ cần load balancer cho 2 thành phần sau:
 - cluster API endpoint (thông qua port 6443 và 22623)
 - ingress endpoint (để người dùng có thể truy cập các app bên trong cluster thông qua port 80/443)
+
 Nếu chúng ta không dùng HAProxy thì cluster sẽ sử dụng internal load balancer, tuy nhiên internal load balancer sẽ có một số hạn chế. Do đó, nếu có thể chúng ta nên setup 1 HAProxy bên ngoài.
 Trong repo này cung cấp file cấu hình haproxy mẫu để chúng ta có thể tùy chỉnh cho phù hợp.
+
 Lưu ý:
 - Nếu  bastion host có SELinux ở chế độ enforcing mode thì chúng ta cần thực hiện câu lệnh sau:
 ```
@@ -339,7 +341,7 @@ Sau khi ngắt kết nối internet của bastion, chúng ta thực hiện lện
 [user@bastion mirror]# ~/mirror/openshift-install agent create image --log-level debug --dir cluster
 ```
 
-Sau khi câu lệnh chạy xong trong thư mục _cluster_ sẽ có 1 file __agent.iso__ và 1 thư mục _auth_ được tạo ra, đồng thời 2 file install-config.yaml và agent-config.yaml tự động bị xoá đi
+Sau khi câu lệnh chạy xong trong thư mục _cluster_ sẽ có 1 file __agent.iso__ và 1 thư mục _auth_ được tạo ra, đồng thời 2 file install-config.yaml và agent-config.yaml tự động bị xoá đi. __Lưu ý file iso này chỉ có thể dùng để cài đặt trong vòng 24h sau khi được tạo ra, sau đó self-signed certificate sẽ bị hết hạn, bạn sẽ cần phjair tạo lại file iso mới.__
 
 Tiếp theo, chúng ta sẽ thực hiện các thao tác:
 - Upload file agent.iso lên vmware, 
