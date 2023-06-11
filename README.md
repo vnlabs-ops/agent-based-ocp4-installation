@@ -419,13 +419,13 @@ Cuối cùng, thêm identityProvider vào cluster, ví dụ, chúng ta sẽ thê
                   --from-file htpasswd=./ocp-user-passwd -n openshift-config
 [user@bastion ~]# oc edit oauth cluster
 spec:
-identityProviders:
-- htpasswd:
-    fileData:
-      name: local-idp-secret
-      mappingMethod: claim
+  identityProviders:
+  - htpasswd:
+      fileData:
+        name: local-idp-secret
+    mappingMethod: claim
     name: local-users
-    type: HTPasswd 
+    type: HTPasswd
 ```
 
 Phân quyền cho user, ví dụ user1 có quyền cluster-admin
