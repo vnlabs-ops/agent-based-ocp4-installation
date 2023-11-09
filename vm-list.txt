@@ -1,16 +1,21 @@
-quay.vnlabs.dev             192.168.68.10 <Automatic>
+1. disk.EnableUUID for VMs
+2. HW Specs
+3. MAC Addresses
+
+bastion.vnlabs.dev             192.168.68.10 <Automatic>
 master01.thanhnq.vnlabs.dev 192.168.68.14 00:50:56:87:94:a1
 master02.thanhnq.vnlabs.dev 192.168.68.12 00:50:56:87:94:a2
 master03.thanhnq.vnlabs.dev 192.168.68.13 00:50:56:87:94:a3
 
 worker01.thanhnq.vnlabs.dev 192.168.68.21 00:50:56:87:94:b1
 worker02.thanhnq.vnlabs.dev 192.168.68.22 00:50:56:87:94:b2
+worker03.thanhnq.vnlabs.dev 192.168.68.20 00:50:56:87:94:b3
 
 infra01.thanhnq.vnlabs.dev 192.168.68.23 00:50:56:87:94:c1
 infra02.thanhnq.vnlabs.dev 192.168.68.24 00:50:56:87:94:c2
 infra03.thanhnq.vnlabs.dev 192.168.68.25 00:50:56:87:94:c3
 
 
-api.thanhnq.vnlabs.dev      192.168.68.30
+api.thanhnq.vnlabs.dev      192.168.68.30 --> API 
 api-int.thanhnq.vnlabs.dev  192.168.68.30
-*.apps.thanhnq.vnlabs.dev   192.168.68.31
+*.apps.thanhnq.vnlabs.dev   192.168.68.31 --> Ingress IP

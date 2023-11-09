@@ -1,0 +1,327 @@
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v1alpha2
+storageConfig:
+  registry:
+    imageURL: quay.vnlabs.dev:8443/ocp4/openshift4/mirror/oc-mirror-metadata
+    skipTLS: false
+mirror:
+  platform:
+    channels:
+    - name: stable-4.14
+      type: ocp
+  operators:
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.14
+    packages:
+      - name: 3scale-operator 
+        channels:
+        - name: threescale-2.13
+      - name: advanced-cluster-management
+        channels:
+        - name: release-2.8
+      - name: amq-broker-rhel8 
+        channels:
+        - name: 7.11.x
+      - name: amq-online
+        channels:
+        - name: stable
+      - name: amq-streams
+        channels:
+        - name: stable
+      - name: amq7-interconnect-operator 
+        channels:
+        - name: 1.10.x
+      - name: ansible-automation-platform-operator 
+        channels:
+        - name: stable-2.4-cluster-scoped
+      - name: ansible-cloud-addons-operator
+        channels:
+        - name: stable-2.4-cluster-scoped
+      - name: apicast-operator
+        channels:
+        - name: threescale-2.13
+      - name: aws-efs-csi-driver-operator
+        channels:
+        - name: stable
+      - name: aws-load-balancer-operator 
+        channels:
+        - name: stable-v1
+      - name: bamoe-businessautomation-operator
+        channels:
+        - name: 8.x-stable
+      - name: bamoe-kogito-operator
+        channels:
+        - name: 8.x
+      - name: bare-metal-event-relay
+        channels:
+        - name: stable
+      - name: businessautomation-operator 
+        channels:
+        - name: stable
+      - name: cincinnati-operator
+        channels:
+        - name: v1
+      - name: cluster-kube-descheduler-operator 
+        channels:
+        - name: stable
+      - name: cluster-logging 
+        channels:
+        - name: stable-5.8
+      - name: clusterresourceoverride 
+        channels:
+        - name: stable
+      - name: compliance-operator 
+        channels:
+        - name: stable
+      - name: container-security-operator 
+        channels:
+        - name: stable-3.9
+      - name: costmanagement-metrics-operator 
+        channels:
+        - name: stable
+      - name: cryostat-operator 
+        channels:
+        - name: stable
+      - name: datagrid
+        channels:
+        - name: 8.4.x
+      - name: devspaces
+        channels:
+        - name: stable
+      - name: devworkspace-operator 
+        channels:
+        - name: fast
+      - name: dpu-network-operator 
+        channels:
+        - name: stable
+      - name: eap 
+        channels:
+        - name: stable
+      - name: elasticsearch-operator
+        channels:
+        - name: stable-5.8
+      - name: external-dns-operator
+        channels:
+        - name: stable-v1
+      - name: fence-agents-remediation
+        channels:
+        - name: stable
+      - name: file-integrity-operator
+        channels:
+        - name: stable
+      - name: fuse-apicurito
+        channels:
+        - name: fuse-apicurito-7.12.x
+      - name: fuse-console
+        channels:
+        - name: 7.12.x
+      - name: fuse-online
+        channels:
+        - name: latest
+      - name: gatekeeper-operator-product
+        channels:
+        - name: stable
+      - name: gcp-filestore-csi-driver-operator
+        channels:
+        - name: stable
+      - name: ingress-node-firewall
+        channels:
+        - name: stable
+      - name: jaeger-product
+        channels:
+        - name: stable
+      - name: jws-operator 
+        channels:
+        - name: alpha
+      - name: kiali-ossm
+        channels:
+        - name: stable
+      - name: klusterlet-product
+        channels:
+        - name: stable-2.3
+      - name: kubernetes-nmstate-operator
+        channels:
+        - name: stable
+      - name: kubevirt-hyperconverged 
+        channels:
+        - name: stable
+      - name: local-storage-operator 
+        channels:
+        - name: stable
+      - name: loki-operator
+        channels:
+        - name: stable-5.8
+      - name: lvms-operator
+        channels:
+        - name: stable-4.14
+      - name: machine-deletion-remediation
+        channels:
+        - name: stable
+      - name: mcg-operator
+        channels:
+        - name: stable-4.13
+      - name: metallb-operator 
+        channels:
+        - name: stable
+      - name: mta-operator 
+        channels:
+        - name: stable-v6.2
+      - name: mtc-operator
+        channels:
+        - name: release-v1.8
+      - name: mtr-operator 
+        channels:
+        - name: alpha
+      - name: mtv-operator
+        channels:
+        - name: release-v2.5
+      - name: multicluster-engine
+        channels:
+        - name: stable-2.3
+      - name: multicluster-global-hub-operator-product
+        channels:
+        - name: release-0.7
+      - name: netobserv-operator 
+        channels:
+        - name: stable
+      - name: nfd
+        channels:
+        - name: stable
+      - name: node-healthcheck-operator 
+        channels:
+        - name: stable
+      - name: node-maintenance-operator
+        channels:
+        - name: stable
+      - name: node-observability-operator
+        channels:
+        - name: alpha
+      - name: numaresources-operator
+        channels:
+        - name: '4.14'
+      - name: ocs-client-operator
+        channels:
+        - name: stable-4.13
+      - name: ocs-operator 
+        channels:
+        - name: stable-4.13
+      - name: odf-csi-addons-operator 
+        channels:
+        - name: stable-4.13
+      - name: odf-multicluster-orchestrator
+        channels:
+        - name: stable-4.13
+      - name: odf-operator
+        channels:
+        - name: stable-4.13
+      - name: odr-cluster-operator 
+        channels:
+        - name: stable-4.13
+      - name: odr-hub-operator 
+        channels:
+        - name: stable-4.13
+      - name: openshift-cert-manager-operator 
+        channels:
+        - name: stable-v1
+      - name: openshift-custom-metrics-autoscaler-operator
+        channels:
+        - name: stable
+      - name: openshift-gitops-operator
+        channels:
+        - name: latest
+      - name: openshift-pipelines-operator-rh
+        channels:
+        - name: latest
+      - name: openshift-secondary-scheduler-operator 
+        channels:
+        - name: stable
+      - name: opentelemetry-product
+        channels:
+        - name: stable
+      - name: ptp-operator 
+        channels:
+        - name: stable
+      - name: quay-bridge-operator
+        channels:
+        - name: stable-3.9
+      - name: quay-operator 
+        channels:
+        - name: stable-3.9
+      - name: red-hat-camel-k
+        channels:
+        - name: 1.10.x
+      - name: redhat-oadp-operator
+        channels:
+        - name: stable-1.2
+      - name: rh-service-binding-operator
+        channels:
+        - name: stable
+      - name: rhacs-operator
+        channels:
+        - name: stable
+      - name: rhods-codeflare-operator 
+        channels:
+        - name: alpha
+      - name: rhods-operator
+        channels:
+        - name: stable
+      - name: rhods-prometheus-operator 
+        channels:
+        - name: beta
+      - name: rhpam-kogito-operator 
+        channels:
+        - name: 7.x
+      - name: rhsso-operator
+        channels:
+        - name: stable
+      - name: run-once-duration-override-operator
+        channels:
+        - name: stable
+      - name: sandboxed-containers-operator
+        channels:
+        - name: stable
+      - name: secrets-store-csi-driver-operator
+        channels:
+        - name: preview
+      - name: security-profiles-operator
+        channels:
+        - name: release-alpha-rhel-8
+      - name: self-node-remediation
+        channels:
+        - name: stable
+      - name: serverless-operator
+        channels:
+        - name: stable
+      - name: service-registry-operator
+        channels:
+        - name: 2.x
+      - name: servicemeshoperator
+        channels:
+        - name: stable
+      - name: skupper-operator
+        channels:
+        - name: alpha
+      - name: sriov-network-operator
+        channels:
+        - name: stable
+      - name: submariner 
+        channels:
+        - name: stable-0.16
+      - name: tempo-product
+        channels:
+        - name: stable
+      - name: topology-aware-lifecycle-manager
+        channels:
+        - name: stable
+      - name: vertical-pod-autoscaler
+        channels:
+        - name: stable
+      - name: volsync-product
+        channels:
+        - name: stable
+      - name: web-terminal
+        channels:
+        - name: fast
+
+  additionalImages:
+  - name: registry.redhat.io/ubi8/ubi:latest
+  helm: {}

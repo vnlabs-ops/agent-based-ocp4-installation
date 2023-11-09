@@ -1,0 +1,61 @@
+apiVersion: v1
+baseDomain: <domain name> # any domain name with available DNS server in the network: internal-dns.com
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: <any possible number> # number of worker nodes
+  platform: {}
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+  platform: {}
+metadata:
+  name: thanhnq # cluster name
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 192.168.68.0/24
+  networkType: OVNKubernetes
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  vsphere:
+    apiVIPs: ["192.168.68.30"] # api IP which registered in DNS server during preparation
+    ingressVIPs: ["192.168.68.31"] # Ingress IP which registered in DNS server during preparation
+    failureDomains:
+        - name: <any meaningful text if dont have vmware failure domain>
+          region: <any meaningful text if dont have region>
+          server: vcenter.vnlabs.dev
+          zone: <any text if dont have zone>
+          topology:
+            computeCluster: /<datacenter>/host/<cluster name if any>
+            datacenter: <datacenter>
+            datastore: /<datacenter>/datastore/<datastore name>
+            folder: /<datacenter>/vm/<folder name>
+            networks: [ "<portgroup name>" ]
+            resourcePool: /<datacenter>/host/<cluster name if any>/Resources/<resource-pool-name>
+    vcenters:
+      - datacenters:
+        - <datacenter name>
+        server: <FQDN vcenter serrver name>
+        user: <username>
+        password: <password>
+        port: 443
+pullSecret: '{"auths": { "quay.vnlabs.dev:8443": {"auth": "aW5pdDow...=="}}}'
+sshKey: 'ssh-rsa AAAAB3NzaC1y... user@quay.vnlabs.dev' 
+imageDigestSources:
+- mirrors:
+  - quay.vnlabs.dev:8443/openshift/release
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+- mirrors:
+  - quay.vnlabs.dev:8443/openshift/release-images
+  source: quay.io/openshift-release-dev/ocp-release
+additionalTrustBundle: |
+ -----BEGIN CERTIFICATE-----
+ 
+ -----END CERTIFICATE-----
